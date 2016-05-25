@@ -128,7 +128,7 @@ mod.directive('infiniteScroll', [
           scrollEnabled = !v;
           if (scrollEnabled && checkWhenEnabled) {
             checkWhenEnabled = false;
-            return handler();
+            return $interval(handler, 0, 1)
           }
         };
         scope.$watch('infiniteScrollDisabled', handleInfiniteScrollDisabled);

@@ -133,7 +133,7 @@ mod.directive 'infiniteScroll', ['$rootScope', '$window', '$interval', 'THROTTLE
       scrollEnabled = !v
       if scrollEnabled && checkWhenEnabled
         checkWhenEnabled = false
-        handler()
+        $interval(handler, 0, 1)
 
     scope.$watch 'infiniteScrollDisabled', handleInfiniteScrollDisabled
     # If I don't explicitly call the handler here, tests fail. Don't know why yet.
